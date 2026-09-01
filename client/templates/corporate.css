@@ -1,0 +1,144 @@
+const token = localStorage.getItem("token");
+
+async function loadPortfolio() {
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:5000/api/portfolio",
+            {
+                method: "GET",
+
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+
+            alert(data.message || "Failed to load portfolio.");
+            return;
+
+        }
+
+
+        // ================= HERO =================
+
+        document.getElementById("fullName").innerText =
+            data.fullName || "";
+
+        document.getElementById("headline").innerText =
+            data.headline || "Aspiring Professional";
+
+        document.getElementById("tagline").innerText =
+            data.tagline || "";
+
+
+        // ================= ABOUT =================
+
+        document.getElementById("aboutText").innerText =
+            data.about || data.bio || "No information provided.";
+
+
+        // ================= SKILLS =================
+
+        document.getElementById("softSkills").innerText =
+            data.softSkills || "Not Provided";
+
+        document.getElementById("techSkills").innerText =
+            data.techSkills || "Not Provided";
+
+
+        // ================= EDUCATION =================
+
+        if (
+            data.education &&
+            data.education.length > 0
+        ) {
+
+            document.getElementById("institution").innerText =
+                data.education[0].institution || "Not Provided";
+
+            document.getElementById("degree").innerText =
+                data.education[0].degree || "";
+
+        } else {
+
+            document.getElementById("institution").innerText =
+                "Not Provided";
+
+            document.getElementById("degree").innerText =
+                "";
+
+        }
+
+
+        // ================= EXPERIENCE =================
+
+        if (
+            data.experience &&
+            data.experience.length > 0
+        ) {
+
+            document.getElementById("company").innerText =
+                data.experience[0].company || "No Experience";
+
+            document.getElementById("duration").innerText =
+                data.experience[0].duration || "";
+
+            document.getElementById("responsibilities").innerText =
+                data.experience[0].responsibilities || "";
+
+        } else {
+
+            document.getElementById("company").innerText =
+                "No Experience";
+
+            document.getElementById("duration").innerText =
+                "";
+
+            document.getElementById("responsibilities").innerText =
+                "";
+
+        }
+
+
+        // ================= PROJECTS =================
+
+        document.getElementById("projectsText").innerText =
+            data.projects || "No Projects Added";
+
+
+        // ================= CONTACT =================
+
+        document.getElementById("email").innerText =
+            data.email || "Not Provided";
+
+        document.getElementById("contactNumber").innerText =
+            data.contact || "Not Provided";
+
+
+        // ================= PROFILE IMAGE =================
+
+        if (data.profilePic) {
+
+            document.getElementById("profileImage").src =
+                data.profilePic;
+
+        }
+
+
+    } catch (error) {
+
+        console.error("Portfolio loading error:", error);
+
+        alert("Failed to load portfolio.");
+
+    }
+
+}
+
+loadPortfolio();

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h2>Portfolio Generator</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Help</a>
+        </nav>
+    </header>
+
+    <div class="glow-card">
+        <div class="content">
+            <h1>Welcome to Portfolio Generator</h1>
+            <p>Please log in or sign up to create your portfolio</p>
+
+            <input type="radio" name="tab" id="login" checked>
+            <input type="radio" name="tab" id="signup">
+
+            <div class="tabs">
+                <label for="login">Login</label>
+                <label for="signup">Signup</label>
+            </div>
+
+            <div class="form-container">
+                <form class="login-form" id="loginForm">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required><br>
+                    <input type="password" id="loginPassword" placeholder="Password" required><br>
+                    <button type="submit" class="img-btn">
+                        <img src="../assets/login_btn.png" alt="Login" width="28"> Login
+                    </button>
+                </form>
+
+                <form class="signup-form" id="signupForm">
+                    <input type="text" id="signupName" placeholder="Full Name" required><br>
+                    <input type="email" id="signupEmail" placeholder="Email Address" required><br>
+                    <input type="password" id="signupPassword" placeholder="Create Password" required><br>
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required><br>
+                    <button type="submit" class="img-btn">
+                        <img src="../assets/signup_btn.png" alt="Signup" width="28"> Signup
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Portfolio Generator | Designed by Sumaiya Jannat Arpa
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

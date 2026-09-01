@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Generator Form</title>
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+
+<body>
+    <header>
+        <h1>Portfolio Generator</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Help</a>
+        </nav>
+    </header>
+    <p class="page-title">Build Your Professional Portfolio With Us</p>
+    <form id="portfolioForm">
+<section>
+    <h2>Personal Information</h2>
+
+    <label for="fullName">Full Name *</label>
+    <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Enter your full name"
+        required
+    >
+
+    <label for="headline">Professional Headline *</label>
+    <input
+        type="text"
+        id="headline"
+        name="headline"
+        placeholder="e.g. Aspiring Software Engineer"
+        required
+    >
+
+    <label for="tagline">Professional Tagline *</label>
+    <input
+        type="text"
+        id="tagline"
+        name="tagline"
+        placeholder="e.g. Turning ideas into meaningful digital experiences."
+        required
+    >
+
+    <label for="email">Personal Email *</label>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+    >
+
+    <label for="contact">Contact Number *</label>
+    <input
+        type="tel"
+        id="contact"
+        name="contact"
+        placeholder="Enter your phone number, e.g. 01*********"
+        required
+        pattern="01[0-9]{9}"
+        title="Enter an 11-digit phone number starting with 01"
+    >
+
+    <label for="profilePic">Upload Your Picture</label>
+    <input
+        type="file"
+        id="profilePic"
+        name="profilePic"
+        accept=".jpg,.jpeg,.png"
+    >
+
+    <p class="optional-note">
+        Accepted formats: JPG, JPEG, PNG (Max size 2MB)
+    </p>
+</section>
+<section>
+    <h2>About Me</h2>
+
+    <label for="about">Short About *</label>
+
+    <textarea
+        id="about"
+        name="about"
+        placeholder="Write a short introduction about yourself, your interests, strengths, and career goals..."
+        required
+    ></textarea>
+</section>
+        <section>
+            <h2>Personal Skills</h2>
+            <label for="softSkills">Soft Skills *</label>
+            <input type="text" id="softSkills" name="softSkills" placeholder="e.g. Communication, Management..."
+                required>
+            <label for="techSkills">Tech Skills *</label>
+            <input type="text" id="techSkills" name="techSkills" placeholder="e.g. HTML, CSS..." required>
+        </section>
+        <section>
+            <h2>Academic Background <span class="optional-note">(Optional)</span></h2>
+            <label for="institution">Institution</label>
+            <input type="text" id="institution" name="institution" placeholder="University or College or School name">
+            <label for="degree">Degree</label>
+            <input type="text" id="degree" name="degree" placeholder="Bachelor of Science in...">
+            <details>
+                <summary class="add-btn" title="Add more entries">+</summary>
+                <div class="entry">
+                    <label>Institution</label>
+                    <input type="text" name="institution" placeholder="Another institution...">
+                    <label>Degree</label>
+                    <input type="text" name="degree" placeholder="Another degree...">
+                </div>
+            </details>
+        </section>
+        <section>
+            <h2>Work Experience <span class="optional-note">(Optional)</span></h2>
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="Company name">
+            <label for="duration">Duration</label>
+            <input type="text" id="duration" name="duration" placeholder="e.g. Jan 2020 - Dec 2024">
+            <label for="responsibilities">Responsibilities</label>
+            <textarea id="responsibilities" name="responsibilities" placeholder="Describe your roles..."></textarea>
+            <details>
+                <summary class="add-btn" title="Add more entries">+</summary>
+                <div class="entry">
+                    <label>Company Name</label>
+                    <input type="text" name="company" placeholder="Another company...">
+                    <label>Duration</label>
+                    <input type="text" name="duration" placeholder="e.g. Feb 2021 - Present">
+                    <label>Responsibilities</label>
+                    <textarea name="responsibilities" placeholder="Describe your roles..."></textarea>
+                </div>
+            </details>
+        </section>
+        <section>
+            <h2>Projects / Publications <span class="optional-note">(Optional)</span></h2>
+            <textarea id="projects" name="projects" placeholder="List your projects or publications..."></textarea>
+
+            <details>
+                <summary class="add-btn" title="Add more entries">+</summary>
+                <div class="entry">
+                    <textarea name="projects" placeholder="Add another project or publication..."></textarea>
+                </div>
+            </details>
+        </section>
+        <button type="submit">Submit</button>
+    </form>
+    <footer>
+        &copy; 2026 Portfolio Generator | Designed by Sumaiya Jannat Arpa
+    </footer>
+
+    <script src="../js/form.js"></script>
+
+</body>
+
+</html>
