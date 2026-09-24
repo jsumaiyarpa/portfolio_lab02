@@ -1,0 +1,32 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/html/index.html",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/dashboard",
+      "destination": "/html/dashboard.html"
+    },
+    {
+      "source": "/form",
+      "destination": "/html/form.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/html/portfolio.html"
+    },
+    {
+      "source": "/profile",
+      "destination": "/html/profile.html"
+    },
+    {
+      "source": "/template-gallery",
+      "destination": "/html/template-gallery.html"
+    }
+  ]
+}
