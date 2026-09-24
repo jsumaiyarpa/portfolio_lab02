@@ -1,16 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-<title>Minimal Portfolio</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimal Portfolio - Portfolio Generator</title>
+<link rel="stylesheet" href="minimal.css">
 </head>
 
 <body>
 
-<h1>Minimal Template</h1>
+<header>
+<div class="logo">
+    <a href="#" class="logo-link">Index / Portfolio</a>
+</div>
 
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<main class="content-wrapper">
+    <section class="hero">
+        <div class="hero-header">
+            <h1 id="fullName">Developer Name</h1>
+            <p id="headline" class="hero-subtitle">Software Engineer & Designer</p>
+        </div>
+
+        <p id="tagline" class="hero-tagline"></p>
+
+        <div class="hero-portrait">
+            <img
+                id="profileImage"
+                src="../assets/default-avatar.svg"
+                alt="Profile Portrait">
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ABOUT -->
+    <section class="section-block" id="about">
+        <div class="section-label">
+            <h3>01 / About</h3>
+        </div>
+        <div class="section-content">
+            <p id="aboutText" class="editorial-text"></p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SKILLS -->
+    <section class="section-block" id="skills">
+        <div class="section-label">
+            <h3>02 / Skills</h3>
+        </div>
+        <div class="section-content">
+            <div class="skills-columns">
+                <div>
+                    <h4 class="subhead">Soft Competencies</h4>
+                    <div id="softSkills" class="minimal-tags"></div>
+                </div>
+                <div>
+                    <h4 class="subhead">Technical Stack</h4>
+                    <div id="techSkills" class="minimal-tags"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EDUCATION -->
+    <section class="section-block" id="education">
+        <div class="section-label">
+            <h3>03 / Education</h3>
+        </div>
+        <div class="section-content" id="educationContainer"></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EXPERIENCE -->
+    <section class="section-block" id="experience">
+        <div class="section-label">
+            <h3>04 / Experience</h3>
+        </div>
+        <div class="section-content" id="experienceContainer"></div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- PROJECTS -->
+    <section class="section-block" id="projects">
+        <div class="section-label">
+            <h3>05 / Projects</h3>
+        </div>
+        <div class="section-content">
+            <div id="projectsText" class="projects-editorial"></div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- CONTACT -->
+    <section class="section-block" id="contact">
+        <div class="section-label">
+            <h3>06 / Contact</h3>
+        </div>
+        <div class="section-content contact-details">
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Phone:</strong> <span id="contactNumber"></span></p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Portfolio Generator — Minimalist Edition</p>
+</footer>
+
+<script src="minimal.js"></script>
 </body>
-
 </html>

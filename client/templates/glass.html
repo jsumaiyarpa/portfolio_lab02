@@ -1,16 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-<title>Glass Portfolio</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glassmorphism Portfolio - Portfolio Generator</title>
+<link rel="stylesheet" href="glass.css">
 </head>
 
 <body>
 
-<h1>Glass Template</h1>
+<div class="ambient-glow-1"></div>
+<div class="ambient-glow-2"></div>
 
+<header class="glass-nav">
+<div class="logo">
+    ✨ <span class="logo-text">Glass</span>Portfolio
+</div>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text glass-card">
+        <span class="badge">CREATIVE DEVELOPER</span>
+        <h1 id="fullName">Loading...</h1>
+        <h2 id="headline">UI/UX Designer & Engineer</h2>
+        <p id="tagline">Designing clean, modern, and engaging user experiences.</p>
+
+        <div class="buttons">
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="btn-glass-primary">
+                View Projects
+            </button>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-glass-secondary">
+                Connect
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="glass-avatar-frame">
+            <img
+                id="profileImage"
+                src="../assets/default-avatar.svg"
+                alt="Profile Picture">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="glass-card">
+        <h2>About Me</h2>
+        <p id="aboutText" class="about-content"></p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+    <div class="skills-grid">
+        <div class="glass-card">
+            <h2>Soft Skills</h2>
+            <div id="softSkills" class="tags-container"></div>
+        </div>
+        <div class="glass-card">
+            <h2>Technical Skills</h2>
+            <div id="techSkills" class="tags-container"></div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+    <div class="glass-card">
+        <h2>Academic Background</h2>
+        <div id="educationContainer"></div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+    <div class="glass-card">
+        <h2>Work Experience</h2>
+        <div id="experienceContainer"></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+    <div class="glass-card">
+        <h2>Projects & Portfolio</h2>
+        <div id="projectsText" class="projects-block"></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="glass-card contact-box">
+        <h2>Contact Me</h2>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="contactNumber"></span></p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Portfolio Generator | Glassmorphism Edition | Designed by Sumaiya Jannat Arpa</p>
+</footer>
+
+<script src="glass.js"></script>
 </body>
-
 </html>

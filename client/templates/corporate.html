@@ -2,188 +2,110 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Corporate Portfolio</title>
-
+<title>Corporate Portfolio - Portfolio Generator</title>
 <link rel="stylesheet" href="corporate.css">
 </head>
 
 <body>
 
 <header>
-
 <div class="logo">
-
-Portfolio Generator
-
+    💼 Portfolio Generator
 </div>
 
 <nav>
-
-<a href="#about">About</a>
-
-<a href="#skills">Skills</a>
-
-<a href="#education">Education</a>
-
-<a href="#experience">Experience</a>
-
-<a href="#projects">Projects</a>
-
-<a href="#contact">Contact</a>
-
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
 </nav>
-
 </header>
 
 <section class="hero">
+    <div class="hero-text">
+        <h3>Hello, I'm</h3>
+        <h1 id="fullName">Professional Name</h1>
+        <h2 id="headline">Software Engineer & Problem Solver</h2>
+        <p id="tagline">Turning ideas into meaningful digital experiences.</p>
 
-<div class="hero-text">
+        <div class="buttons">
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+                View Projects
+            </button>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-outline">
+                Contact Me
+            </button>
+        </div>
+    </div>
 
-<h3>Hello, I'm</h3>
-
-<h1 id="fullName"></h1>
-
-<h2 id="headline"></h2>
-
-<p id="tagline"></p>
-
-<div class="buttons">
-
-<button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
-    View Projects
-</button>
-<button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-    Contact Me
-</button>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img
-    id="profileImage"
-    src="../assets/profile-placeholder.png"
-    alt="Profile Picture">
-
-</div>
-
+    <div class="hero-image">
+        <img
+            id="profileImage"
+            src="../assets/default-avatar.svg"
+            alt="Profile Picture">
+    </div>
 </section>
+
 <!-- ABOUT -->
-
 <section class="about" id="about">
-
     <h2>About Me</h2>
-
-    <p id="aboutText"></p>
-
+    <div class="card">
+        <p id="aboutText"></p>
+    </div>
 </section>
 
 <!-- SKILLS -->
-
 <section class="skills" id="skills">
-
-    <h2>Skills</h2>
-
+    <h2>Skills & Expertise</h2>
     <div class="skill-box">
-
-        <div>
-
+        <div class="card">
             <h3>Soft Skills</h3>
-
-            <p id="softSkills"></p>
-
+            <div id="softSkills" class="tags-container"></div>
         </div>
-
-        <div>
-
+        <div class="card">
             <h3>Technical Skills</h3>
-
-            <p id="techSkills"></p>
-
+            <div id="techSkills" class="tags-container"></div>
         </div>
-
     </div>
-
 </section>
+
 <!-- EDUCATION -->
-
 <section class="education" id="education">
-
-    <h2>Education</h2>
-
-    <div class="timeline-card">
-
-        <h3 id="institution"></h3>
-
-        <p id="degree"></p>
-
-    </div>
-
+    <h2>Academic Background</h2>
+    <div id="educationContainer"></div>
 </section>
 
 <!-- EXPERIENCE -->
-
 <section class="experience" id="experience">
-
-    <h2>Experience</h2>
-
-    <div class="timeline-card">
-
-        <h3 id="company"></h3>
-
-        <h4 id="duration"></h4>
-
-        <p id="responsibilities"></p>
-
-    </div>
-
+    <h2>Work Experience</h2>
+    <div id="experienceContainer"></div>
 </section>
 
 <!-- PROJECTS -->
-
 <section class="projects" id="projects">
-
-    <h2>Projects</h2>
-
-    <div class="project-card">
-
-        <p id="projectsText"></p>
-
+    <h2>Featured Projects</h2>
+    <div class="card">
+        <div id="projectsText" class="projects-block"></div>
     </div>
-
 </section>
 
 <!-- CONTACT -->
-
 <section class="contact" id="contact">
-
-    <h2>Contact</h2>
-
-    <div class="timeline-card">
-
-        <p><strong>Email:</strong> <span id="email"></span></p>
-
-        <p><strong>Phone:</strong> <span id="contactNumber"></span></p>
-
+    <h2>Get In Touch</h2>
+    <div class="card contact-card">
+        <p><strong>📧 Email:</strong> <span id="email"></span></p>
+        <p><strong>📞 Phone:</strong> <span id="contactNumber"></span></p>
     </div>
-
 </section>
+
 <footer>
-
-    <p>
-
-        © 2026 Portfolio Generator | Designed by Sumaiya Jannat Arpa
-
-    </p>
-
+    <p>© 2026 Portfolio Generator | Designed by Sumaiya Jannat Arpa</p>
 </footer>
+
 <script src="corporate.js"></script>
 </body>
-
-</html>
+</html>

@@ -1,16 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-<title>Dark Portfolio</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Theme Portfolio - Portfolio Generator</title>
+<link rel="stylesheet" href="dark.css">
 </head>
 
 <body>
 
-<h1>Dark Template</h1>
+<header>
+<div class="logo">
+    ⚡ <span class="logo-accent">Dark</span>Portfolio
+</div>
 
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <span class="hero-tag">WELCOME TO MY WORLD</span>
+        <h1 id="fullName">Loading Name...</h1>
+        <h2 id="headline" class="glow-text">Full Stack Developer</h2>
+        <p id="tagline">Crafting next-generation digital products with precision.</p>
+
+        <div class="buttons">
+            <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="btn-glow">
+                Explore Projects
+            </button>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-dark">
+                Get In Touch
+            </button>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="avatar-glow-ring">
+            <img
+                id="profileImage"
+                src="../assets/default-avatar.svg"
+                alt="Profile Picture">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <h2 class="section-title"><span>// 01.</span> About Me</h2>
+    <div class="dark-card">
+        <p id="aboutText" class="lead-text"></p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+    <h2 class="section-title"><span>// 02.</span> Skills & Arsenal</h2>
+    <div class="skills-grid">
+        <div class="dark-card">
+            <h3>Soft Skills</h3>
+            <div id="softSkills" class="tags-container"></div>
+        </div>
+        <div class="dark-card">
+            <h3>Technical Stack</h3>
+            <div id="techSkills" class="tags-container"></div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+    <h2 class="section-title"><span>// 03.</span> Education</h2>
+    <div id="educationContainer"></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+    <h2 class="section-title"><span>// 04.</span> Experience</h2>
+    <div id="experienceContainer"></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+    <h2 class="section-title"><span>// 05.</span> Featured Projects</h2>
+    <div class="dark-card">
+        <div id="projectsText" class="projects-block"></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2 class="section-title"><span>// 06.</span> Contact Details</h2>
+    <div class="dark-card contact-box">
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Phone:</strong> <span id="contactNumber"></span></p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Portfolio Generator | Dark Theme | Designed by Sumaiya Jannat Arpa</p>
+</footer>
+
+<script src="dark.js"></script>
 </body>
-
 </html>
