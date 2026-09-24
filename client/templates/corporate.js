@@ -1,96 +1,133 @@
 const token = localStorage.getItem("token");
 
 async function loadPortfolio() {
-
     try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const publicId = urlParams.get("id");
 
-        const response = await fetch("http://localhost:5000/api/portfolio", {
+        let response;
+        if (publicId) {
+            response = await fetch(`${API_BASE_URL}/api/portfolio/public/${publicId}`);
+        } else if (token) {
+            response = await fetch(`${API_BASE_URL}/api/portfolio`, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+        } else {
+            alert("Please login to view your portfolio or provide a public link.");
+            window.location.href = "../html/index.html";
+            return;
+        }
 
-            method: "GET",
-
-            headers: {
-
-                Authorization: `Bearer ${token}`
-
-            }
-
-        });
+        if (!response.ok) {
+            const data = await response.json();
+            alert(data.message || "Failed to load portfolio.");
+            return;
+        }
 
         const data = await response.json();
 
-        if (!response.ok) {
+        // Hero
+        document.getElementById("fullName").innerText = data.fullName || "Professional Name";
+        document.getElementById("headline").innerText = data.headline || "Software Engineer";
+        document.getElementById("tagline").innerText = data.tagline ? `"${data.tagline}"` : "";
 
-            alert(data.message);
-            return;
-
+        // Profile Image
+        if (data.profilePic) {
+            document.getElementById("profileImage").src = data.profilePic;
         }
 
-        // Hero
-
-        document.getElementById("fullName").innerText =
-            data.fullName || "";
-
-        document.getElementById("headline").innerText =
-            data.headline || "";
-
-        document.getElementById("tagline").innerText =
-            data.tagline || "";
-
         // About
+        document.getElementById("aboutText").innerText = data.about || "No introduction provided.";
 
-        document.getElementById("aboutText").innerText =
-            data.about || "";
-
-        // Skills
-
-        document.getElementById("softSkills").innerText =
-            data.softSkills || "";
-
-        document.getElementById("techSkills").innerText =
-            data.techSkills || "";
+        // Skills (Soft & Technical)
+        renderTags("softSkills", data.softSkills);
+        renderTags("techSkills", data.techSkills);
 
         // Education
-
-        document.getElementById("institution").innerText =
-            data.institution || "Not Provided";
-
-        document.getElementById("degree").innerText =
-            data.degree || "";
+        const eduContainer = document.getElementById("educationContainer");
+        if (eduContainer) {
+            eduContainer.innerHTML = "";
+            if (data.education && Array.isArray(data.education) && data.education.length > 0) {
+                data.education.forEach(ed => {
+                    const card = document.createElement("div");
+                    card.className = "timeline-card";
+                    card.innerHTML = `
+                        <h3>${escapeHtml(ed.institution || "Institution")}</h3>
+                        <h4>${escapeHtml(ed.degree || "Degree / Program")}</h4>
+                    `;
+                    eduContainer.appendChild(card);
+                });
+            } else {
+                eduContainer.innerHTML = `<p style="color: #64748b;">No academic records listed.</p>`;
+            }
+        }
 
         // Experience
-
-        document.getElementById("company").innerText =
-            data.company || "No Experience";
-
-        document.getElementById("duration").innerText =
-            data.duration || "";
-
-        document.getElementById("responsibilities").innerText =
-            data.responsibilities || "";
+        const expContainer = document.getElementById("experienceContainer");
+        if (expContainer) {
+            expContainer.innerHTML = "";
+            if (data.experience && Array.isArray(data.experience) && data.experience.length > 0) {
+                data.experience.forEach(exp => {
+                    const card = document.createElement("div");
+                    card.className = "timeline-card";
+                    card.innerHTML = `
+                        <h3>${escapeHtml(exp.company || "Company")}</h3>
+                        <h4>${escapeHtml(exp.duration || "")}</h4>
+                        <p>${escapeHtml(exp.responsibilities || "")}</p>
+                    `;
+                    expContainer.appendChild(card);
+                });
+            } else {
+                expContainer.innerHTML = `<p style="color: #64748b;">No professional experience records listed.</p>`;
+            }
+        }
 
         // Projects
-
-        document.getElementById("projectsText").innerText =
-            data.projects || "No Projects Added";
+        const projectsEl = document.getElementById("projectsText");
+        if (projectsEl) {
+            projectsEl.innerText = data.projects || "No projects added.";
+        }
 
         // Contact
+        document.getElementById("email").innerText = data.email || "Not Provided";
+        document.getElementById("contactNumber").innerText = data.contact || "Not Provided";
 
-        document.getElementById("email").innerText =
-            data.email || "Not Provided";
+    } catch (error) {
+        console.error("Portfolio loading error:", error);
+        alert("Failed to load portfolio data.");
+    }
+}
 
-        document.getElementById("contactNumber").innerText =
-            data.contact || "Not Provided";
+function renderTags(elementId, skillsString) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    el.innerHTML = "";
 
+    if (!skillsString) {
+        el.innerHTML = `<span style="color:#94a3b8; font-style:italic;">None provided</span>`;
+        return;
     }
 
-    catch (error) {
+    const skills = skillsString.split(",").map(s => s.trim()).filter(Boolean);
+    skills.forEach(skill => {
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.innerText = skill;
+        el.appendChild(tag);
+    });
+}
 
-        console.log(error);
-
-        alert("Failed to load portfolio.");
-
-    }
-
+function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
 }
 
 loadPortfolio();

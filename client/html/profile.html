@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings - Portfolio Generator</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Portfolio Generator</h1>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="portfolio.html">Preview</a>
+        <a href="template-gallery.html" id="templateGallery">Templates</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2 class="page-title">Profile & Account Settings</h2>
+
+    <div class="settings-grid">
+        <!-- Personal Information Section -->
+        <div class="card">
+            <h3>Account Information</h3>
+            <p class="subtitle">Update your personal account credentials.</p>
+
+            <form id="profileForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+                <button type="submit" class="btn btn-primary" id="saveProfileBtn">Update Profile</button>
+            </form>
+        </div>
+
+        <!-- Security / Password Section -->
+        <div class="card">
+            <h3>Change Password</h3>
+            <p class="subtitle">Keep your account safe with a strong password.</p>
+
+            <form id="passwordForm">
+                <label for="currentPassword">Current Password</label>
+                <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter current password" required>
+
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password (min 6 chars)" required>
+
+                <label for="confirmNewPassword">Confirm New Password</label>
+                <input type="password" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm new password" required>
+
+                <button type="submit" class="btn btn-secondary" id="savePasswordBtn">Update Password</button>
+            </form>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="card danger-card">
+            <h3>Danger Zone</h3>
+            <p class="subtitle">Permanently delete your user account and all saved portfolio data.</p>
+            <button type="button" class="btn btn-danger" id="deleteAccountBtn">Delete Account Permanently</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Portfolio Generator | Designed by Sumaiya Jannat Arpa
+</footer>
+
+<script src="../js/config.js"></script>
+<script src="../js/profile.js"></script>
+
+</body>
+</html>
