@@ -658,39 +658,33 @@ nav a.active {
 
 /* ================= 6. MINIMAL PROFESSIONAL FOOTER ================= */
 footer {
+    position: sticky;
+    bottom: 0;
     width: 100%;
-    background: rgba(10, 15, 60, 0.92);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 24px 20px;
-    color: #f0f0f0;
     text-align: center;
-    box-sizing: border-box;
-    backdrop-filter: blur(6px);
-}
-
-.footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-brand {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-}
-
-.footer-tagline {
-    font-size: 0.85rem;
-    color: #94a3b8;
-    margin-bottom: 8px;
-    font-style: italic;
-}
-
-.footer-copy {
+    padding: 10px 8px;
+    background: rgba(8, 13, 45, 0.95);
+    color: #dfe4ff;
     font-size: 0.8rem;
-    color: #64748b;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    color: #dfe4ff;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #7dd3fc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #a5f3fc;
+    text-decoration: underline;
 }
 
 /* ================= RESPONSIVE DESIGN ================= */

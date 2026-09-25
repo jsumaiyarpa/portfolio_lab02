@@ -199,13 +199,33 @@ input:focus {
 }
 
 footer {
+    position: sticky;
+    bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 14px 8px;
-    background: rgba(68, 78, 189, 0.9);
-    color: #f0f0f0;
-    font-size: 0.85rem;
+    padding: 10px 8px;
+    background: rgba(8, 13, 45, 0.95);
+    color: #dfe4ff;
+    font-size: 0.8rem;
     box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    color: #dfe4ff;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #7dd3fc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #a5f3fc;
+    text-decoration: underline;
 }
 
 @media (max-width: 1024px) {
