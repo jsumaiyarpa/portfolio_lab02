@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const file = e.target.files[0];
             if (!file) return;
 
-            if (file.size > 2 * 1024 * 1024) {
-                alert("Image is too large. Please select an image under 2MB.");
+            if (file.size > 300 * 1024) {
+                alert("Image is too large. Please select an image under 300KB.");
                 profilePicInput.value = "";
                 return;
             }
@@ -103,9 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <label>Duration</label>
             <input type="text" name="duration" placeholder="e.g. Jan 2022 - Present" value="${escapeHtml(duration)}">
             <label>Responsibilities</label>
-            <textarea name="responsibilities" placeholder="Describe your key roles and accomplishments...">${escapeHtml(responsibilities)}</textarea>
+<textarea name="responsibilities" placeholder="Describe your key roles and accomplishments..." maxlength="100">${escapeHtml(responsibilities)}</textarea>
         `;
-
         entry.querySelector(".remove-entry-btn").addEventListener("click", () => {
             entry.remove();
         });
@@ -285,4 +284,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize
     loadExistingPortfolio();
-});
+});

@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const crypto = require("crypto");
+
+function generatePublicId() {
+  return crypto.randomBytes(6).toString("base64url");
+}
 
 const portfolioSchema = new mongoose.Schema(
   {
@@ -70,6 +75,18 @@ const portfolioSchema = new mongoose.Schema(
     template: {
       type: String,
       default: "corporate",
+    },
+
+    publicId: {
+      type: String,
+      unique: true,
+      sparse: true,
+      default: generatePublicId,
+    },
+
+    isPublic: {
+      type: Boolean,
+      default: false,
     },
 
     user: {
