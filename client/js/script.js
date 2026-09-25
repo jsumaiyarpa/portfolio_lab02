@@ -123,17 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navAbout = document.getElementById("navAbout");
   if (navAbout) {
-    navAbout.addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("Portfolio Generator lets you craft, customize, and showcase your professional software engineering portfolios with multi-theme support.");
+    navAbout.addEventListener("click", () => {
+      window.location.href = "about.html";
     });
   }
 
   const navHelp = document.getElementById("navHelp");
   if (navHelp) {
-    navHelp.addEventListener("click", (e) => {
-      e.preventDefault();
-      alert("Need assistance? Register for a free account, complete your profile in the portfolio builder, and select from our 4 modern templates: Corporate, Dark, Glass, and Minimal.");
+    navHelp.addEventListener("click", () => {
+      window.location.href = "help.html";
     });
   }
-});
+});

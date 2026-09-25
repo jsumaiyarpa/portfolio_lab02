@@ -12,9 +12,9 @@
     <header>
         <h2>Portfolio Generator</h2>
         <nav>
-            <a href="#" id="navHome">Home</a>
-            <a href="#" id="navAbout">About</a>
-            <a href="#" id="navHelp">Help</a>
+            <a href="index.html" id="navHome">Home</a>
+            <a href="about.html" id="navAbout">About</a>
+            <a href="help.html" id="navHelp">Help</a>
         </nav>
     </header>
 
@@ -33,18 +33,23 @@
 
             <div class="form-container">
                 <form class="login-form" id="loginForm">
-                    <input type="email" id="loginEmail" placeholder="Email Address" required><br>
-                    <input type="password" id="loginPassword" placeholder="Password" required><br>
+                    <input type="email" id="loginEmail" placeholder="Email Address" autocomplete="off" required><br>
+                    <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password"
+                        required><br>
+
                     <button type="submit" class="img-btn">
                         <img src="../assets/login_btn.png" alt="Login" width="28"> Login
                     </button>
                 </form>
 
                 <form class="signup-form" id="signupForm">
-                    <input type="text" id="signupName" placeholder="Full Name" required><br>
-                    <input type="email" id="signupEmail" placeholder="Email Address" required><br>
-                    <input type="password" id="signupPassword" placeholder="Create Password" required><br>
-                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required><br>
+                    <input type="text" id="signupName" placeholder="Full Name" autocomplete="off" required><br>
+                    <input type="email" id="signupEmail" placeholder="Email Address" autocomplete="off" required><br>
+                    <input type="password" id="signupPassword" placeholder="Create Password" autocomplete="new-password"
+                        required><br>
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm Password"
+                        autocomplete="new-password" required><br>
+
                     <button type="submit" class="img-btn">
                         <img src="../assets/signup_btn.png" alt="Signup" width="28"> Signup
                     </button>

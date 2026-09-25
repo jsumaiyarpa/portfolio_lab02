@@ -259,7 +259,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* New styles for form sections */
 fieldset {
     border: none;
     margin: 15px 0;
@@ -366,7 +365,6 @@ textarea {
     background: #d62839;
 }
 
-/* Modal styles */
 .modal {
     position: fixed;
     top: 0;
@@ -423,6 +421,14 @@ textarea {
     background: #107a2b;
 }
 
+.signup-form input {
+    width: 90%;
+    height: 40px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
     header {
         flex-direction: column;
@@ -448,4 +454,5 @@ textarea {
     .modal-content {
         width: 95%;
     }
+
 }

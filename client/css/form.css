@@ -88,7 +88,7 @@
             font-weight: bold;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
         }
-        
+
         form {
             background: rgba(255, 255, 255, .95);
             width: 90%;
@@ -148,15 +148,15 @@
         }
 
         input:hover,
-        textarea:hover{
-            border-color:#3044c7;
+        textarea:hover {
+            border-color: #3044c7;
         }
 
         input:focus,
         textarea:focus {
             border: 1px solid #3044c7;
             box-shadow: 0 0 10px rgba(48, 68, 199, .25);
-            outline:none;
+            outline: none;
         }
 
         textarea {
@@ -225,7 +225,7 @@
             background: #c52233;
         }
 
-        button[type="submit"]{
+        button[type="submit"] {
             width: 100%;
             max-width: 280px;
             height: 52px;
@@ -290,4 +290,13 @@
             section {
                 padding: 15px;
             }
+        }
+
+        .char-count {
+            display: block;
+            text-align: right;
+            margin-top: -4px;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 0.8rem;
         }

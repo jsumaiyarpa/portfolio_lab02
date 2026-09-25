@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <label>Duration</label>
             <input type="text" name="duration" placeholder="e.g. Jan 2022 - Present" value="${escapeHtml(duration)}">
             <label>Responsibilities</label>
-<textarea name="responsibilities" placeholder="Describe your key roles and accomplishments..." maxlength="100">${escapeHtml(responsibilities)}</textarea>
+            <textarea name="responsibilities" placeholder="Describe your key roles and accomplishments..." maxlength="100">${escapeHtml(responsibilities)}</textarea>
         `;
         entry.querySelector(".remove-entry-btn").addEventListener("click", () => {
             entry.remove();
