@@ -4,6 +4,29 @@ async function loadPortfolio() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         const publicId = urlParams.get("id");
+        
+        const ownerBackLink = document.getElementById("ownerBackLink");
+        const publicLogo = document.getElementById("publicLogo");
+
+if (publicId) {
+    // Public portfolio: hide owner navigation
+    if (ownerBackLink) {
+        ownerBackLink.style.display = "none";
+    }
+
+    if (publicLogo) {
+        publicLogo.style.display = "inline";
+    }
+} else {
+    // Owner portfolio: show clickable back link
+    if (ownerBackLink) {
+        ownerBackLink.style.display = "inline";
+    }
+
+    if (publicLogo) {
+        publicLogo.style.display = "none";
+    }
+}
 
         let response;
         if (publicId) {
