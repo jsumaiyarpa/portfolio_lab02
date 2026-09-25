@@ -46,16 +46,17 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(rgba(10, 15, 60, 0.75), rgba(10, 15, 60, 0.75)),
-        url('background2.jpg');
+        url('../assets/background2.jpg');
     background-size: cover;
     background-position: center;
-    font-family: Arial, sans-serif;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
