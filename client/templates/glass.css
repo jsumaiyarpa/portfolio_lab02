@@ -267,10 +267,20 @@ section h2 {
     line-height: 1.6;
 }
 
-.projects-block {
-    white-space: pre-wrap;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
+.project-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #f472b6;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.project-link:hover {
+    color: #c084fc;
+    text-shadow: 0 0 10px rgba(244, 114, 182, 0.5);
+    transform: translateX(4px);
 }
 
 .contact-box p {

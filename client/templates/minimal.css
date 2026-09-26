@@ -182,11 +182,19 @@ nav a:hover {
     line-height: 1.6;
 }
 
-.projects-editorial {
-    white-space: pre-wrap;
-    line-height: 1.8;
-    color: #262626;
-    font-size: 1.05rem;
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #171717;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: #737373;
 }
 
 .contact-details p {

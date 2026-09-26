@@ -100,13 +100,15 @@
         </section>
 
         <section>
-            <h2>Projects / Publications <span class="optional-note">(Optional)</span></h2>
-            <label for="projects">Projects Overview & Links</label>
-            <textarea id="projects" name="projects"
-                placeholder="List your projects, key features, tech stacks, and live/GitHub links..."
-                maxlength="600"></textarea>
-            <small class="char-count" id="projectsCount">Up to 600 characters</small>
-        </section>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <h2 style="margin: 0;">Projects / Publications <span class="optional-note">(Optional)</span></h2>
+        <button type="button" class="add-entry-btn" id="addProjectBtn">+ Add Project</button>
+    </div>
+
+    <div id="projectList"></div>
+
+    <textarea id="projects" name="projects" hidden></textarea>
+</section>
 
         <button type="submit" id="submitBtn">Save Portfolio</button>
     </form>

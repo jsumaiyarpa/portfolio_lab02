@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // DOM Elements
     const educationList = document.getElementById("educationList");
     const experienceList = document.getElementById("experienceList");
+    const projectList = document.getElementById("projectList");
+    const addProjectBtn = document.getElementById("addProjectBtn");
+    const projectsTextarea = document.getElementById("projects");
     const addEducationBtn = document.getElementById("addEducationBtn");
     const addExperienceBtn = document.getElementById("addExperienceBtn");
     const profilePicInput = document.getElementById("profilePic");
@@ -128,6 +131,85 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/>/g, "&gt;");
     }
 
+    // ================= DYNAMIC PROJECT REPEATER =================
+    function addProjectEntry(name = "", details = "", link = "") {
+        const entry = document.createElement("div");
+        entry.className = "repeater-entry project-entry";
+
+        entry.innerHTML = `
+        <div class="entry-header">
+            <span class="entry-title">Project Entry</span>
+            <button type="button" class="remove-entry-btn">Remove</button>
+        </div>
+
+        <label>Project Name</label>
+        <input
+            type="text"
+            name="projectName"
+            placeholder="e.g. Portfolio Generator"
+            value="${escapeHtml(name)}"
+            maxlength="100"
+        >
+
+        <label>Details</label>
+        <textarea
+            name="projectDetails"
+            placeholder="Briefly describe your project, features, your role, etc."
+            maxlength="400"
+        >${escapeHtml(details)}</textarea>
+
+        <label>Relevant Link(s) <span class="optional-note">(Optional)</span></label>
+        <input
+            type="text"
+            name="projectLink"
+            placeholder="https://github.com/... or live/demo link"
+            value="${escapeHtml(link)}"
+        >
+    `;
+
+        entry.querySelector(".remove-entry-btn").addEventListener("click", () => {
+            entry.remove();
+            updateProjectsValue();
+        });
+
+        projectList.appendChild(entry);
+    }
+
+
+    // ================= ADD PROJECT BUTTON =================
+    if (addProjectBtn) {
+        addProjectBtn.addEventListener("click", () => {
+            addProjectEntry();
+        });
+    }
+
+
+    // ================= CONVERT PROJECTS TO EXISTING STRING =================
+    function updateProjectsValue() {
+        const projects = [];
+
+        document.querySelectorAll(".project-entry").forEach(entry => {
+            const name =
+                entry.querySelector('input[name="projectName"]')?.value.trim() || "";
+
+            const details =
+                entry.querySelector('textarea[name="projectDetails"]')?.value.trim() || "";
+
+            const link =
+                entry.querySelector('input[name="projectLink"]')?.value.trim() || "";
+
+            if (name || details || link) {
+                projects.push(
+                    `Project Name: ${name}\n` +
+                    `Details: ${details}\n` +
+                    (link ? `Link: ${link}` : "")
+                );
+            }
+        });
+
+        projectsTextarea.value = projects.join("\n\n");
+    }
+
     // ================= LOAD EXISTING PORTFOLIO =================
     async function loadExistingPortfolio() {
         try {
@@ -191,7 +273,25 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // Projects
-            document.getElementById("projects").value = data.projects || "";
+            // Projects
+            if (data.projects) {
+                const projectBlocks = data.projects
+                    .split(/\n\s*\n/)
+                    .filter(block => block.trim());
+
+                projectBlocks.forEach(block => {
+                    const name =
+                        block.match(/Project Name:\s*(.*)/)?.[1] || "";
+
+                    const details =
+                        block.match(/Details:\s*(.*)/)?.[1] || "";
+
+                    const link =
+                        block.match(/Link:\s*(.*)/)?.[1] || "";
+
+                    addProjectEntry(name, details, link);
+                });
+            }
 
         } catch (error) {
             console.error("Load portfolio error:", error);
@@ -203,6 +303,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ================= SUBMIT FORM =================
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+
+        // Update projects textarea before creating payload
+        updateProjectsValue();
 
         // Education Array
         const education = [];

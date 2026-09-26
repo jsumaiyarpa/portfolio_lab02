@@ -81,4 +81,4 @@ if (logoutBtn) {
     });
 }
 
-loadSavedTemplate();
+loadSavedTemplate();

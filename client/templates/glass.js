@@ -108,11 +108,50 @@ if (publicId) {
             }
         }
 
-        // Projects
-        const projectsEl = document.getElementById("projectsText");
-        if (projectsEl) {
-            projectsEl.innerText = data.projects || "No projects listed.";
-        }
+// Projects
+const projectsEl = document.getElementById("projectsText");
+
+if (projectsEl) {
+    projectsEl.innerHTML = "";
+
+    if (data.projects) {
+        const projectBlocks = data.projects
+            .split(/\n\s*\n/)
+            .filter(block => block.trim());
+
+        projectBlocks.forEach(block => {
+            const name = block.match(/Project Name:\s*(.*)/)?.[1] || "";
+            const details = block.match(/(?:Details|Description):\s*(.*)/)?.[1] || "";
+            const link = block.match(/(?:Link|Relevant Link\(s\)):\s*(.*)/)?.[1] || "";
+
+            const item = document.createElement("div");
+            item.className = "timeline-item project-item";
+
+            item.innerHTML = `
+                ${name ? `<h3>${escapeHtml(name)}</h3>` : ""}
+                ${details ? `<p>${escapeHtml(details)}</p>` : ""}
+                ${link ? `
+                    <a href="${escapeHtml(link)}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="project-link">
+                        View Project ↗
+                    </a>
+                ` : ""}
+            `;
+
+            projectsEl.appendChild(item);
+        });
+    }
+
+    if (!projectsEl.children.length) {
+        projectsEl.innerHTML = `
+            <p style="color: rgba(255,255,255,0.6);">
+                No projects listed.
+            </p>
+        `;
+    }
+}
 
         // Contact
         document.getElementById("email").innerText = data.email || "Not Provided";

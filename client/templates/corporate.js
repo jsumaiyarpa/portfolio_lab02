@@ -107,11 +107,46 @@ if (publicId) {
             }
         }
 
-        // Projects
-        const projectsEl = document.getElementById("projectsText");
-        if (projectsEl) {
-            projectsEl.innerText = data.projects || "No projects added.";
-        }
+// Projects
+const projectsEl = document.getElementById("projectsText");
+
+if (projectsEl) {
+    projectsEl.innerHTML = "";
+
+    if (data.projects) {
+        const projectBlocks = data.projects
+            .split(/\n\s*\n/)
+            .filter(block => block.trim());
+
+        projectBlocks.forEach(block => {
+            const name = block.match(/Project Name:\s*(.*)/)?.[1] || "";
+            const details = block.match(/(?:Details|Description):\s*(.*)/)?.[1] || "";
+            const link = block.match(/(?:Link|Relevant Link\(s\)):\s*(.*)/)?.[1] || "";
+
+            const card = document.createElement("div");
+            card.className = "timeline-card";
+
+            card.innerHTML = `
+                ${name ? `<h3>${escapeHtml(name)}</h3>` : ""}
+                ${details ? `<p>${escapeHtml(details)}</p>` : ""}
+                ${link ? `
+                    <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer"
+                       class="project-link">
+                        View Project ↗
+                    </a>
+                ` : ""}
+            `;
+
+            projectsEl.appendChild(card);
+        });
+    }
+
+    if (!projectsEl.children.length) {
+        projectsEl.innerHTML = `<p style="color: #64748b;">No projects added.</p>`;
+    }
+}
+
+// Contact
 
         // Contact
         document.getElementById("email").innerText = data.email || "Not Provided";

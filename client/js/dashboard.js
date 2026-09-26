@@ -87,7 +87,7 @@ if (exportLinkBtn) {
                     console.warn("Clipboard API write failed, using fallback:", clipErr);
                 }
             }
-            
+
             if (!copied) {
                 const tempInput = document.createElement("textarea");
                 tempInput.value = publicUrl;

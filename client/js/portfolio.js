@@ -181,4 +181,4 @@ if (logoutBtn) {
     });
 }
 
-loadPortfolio();
+loadPortfolio();
