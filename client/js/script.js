@@ -49,16 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json();
 
         if (response.ok) {
-          alert("Registration Successful! Welcome to Portfolio Generator.");
-          if (data.token) {
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data.user));
-            window.location.href = "dashboard.html";
-          } else {
-            document.getElementById("login").checked = true;
-            document.getElementById("loginEmail").value = email;
-            signupForm.reset();
-          }
+          alert("Registration Successful! Please log in to continue.");
+
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+
+          document.getElementById("login").checked = true;
+          document.getElementById("loginEmail").value = email;
+
+          signupForm.reset();
         } else {
           alert(data.message || "Registration failed. Please try again.");
         }
